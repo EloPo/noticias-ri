@@ -6,10 +6,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.end_headers()
-
-        response = {
-            "status": "ok",
-            "message": "Webhook ativo"
-        }
-
-        self.wfile.write(json.dumps(response).encode())
+        self.wfile.write(json.dumps({"ok": True}).encode())
